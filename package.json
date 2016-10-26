@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node devserver",
+    "start": "node .",
     "build": "cross-env NODE_ENV=production webpack --config webpack.config.prd.js",
     "test": "cross-env NODE_PATH=app jest"
   },
@@ -13,7 +13,8 @@
   "license": "ISC",
   "dependencies": {
     "react": "15.3.2",
-    "react-dom": "15.3.2"
+    "react-dom": "15.3.2",
+    "whatwg-fetch": "1.0.0"
   },
   "devDependencies": {
     "babel-core": "6.18.0",
@@ -42,7 +43,7 @@
   "jest": {
     "moduleNameMapper": {
       "^.+\\.(ico|jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2)$": "<rootDir>/app/__mocks__/fileMock.js",
-      "^.+\\.(css|less)$": "<rootDir>/__mocks__/styleMock.js"
+      "^.+\\.(css|less)$": "<rootDir>/app/__mocks__/styleMock.js"
     }
   }
 }
