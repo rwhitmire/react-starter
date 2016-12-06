@@ -7,13 +7,7 @@
     "jest": true
   },
   "extends": "eslint:recommended",
-  "parserOptions": {
-    "ecmaFeatures": {
-      "experimentalObjectRestSpread": true,
-      "jsx": true
-    },
-    "sourceType": "module"
-  },
+  "parser": "babel-eslint",
   "plugins": [
     "react",
     "import"
@@ -28,10 +22,6 @@
       "error",
       2
     ],
-    "linebreak-style": [
-      "error",
-      "unix"
-    ],
     "quotes": [
       "error",
       "single"
@@ -40,6 +30,7 @@
       "error",
       "never"
     ],
+    "no-console": 0,
     "react/jsx-uses-react": "error",
     "react/jsx-uses-vars": "error",
     "react/react-in-jsx-scope": "error",

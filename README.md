@@ -1,6 +1,7 @@
 ### Development
 
 ```
+yarn install
 npm start
 ```
 

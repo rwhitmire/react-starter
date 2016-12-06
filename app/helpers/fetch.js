@@ -1,7 +1,7 @@
 import 'whatwg-fetch'
 
 /**
- * Fetch wrapper for handling JSON requests and responses.
+ * Fetch wrapper for making REST API calls
  */
 
 export function fetchJSON(url, opts={}) {

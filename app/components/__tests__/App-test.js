@@ -1,9 +1,10 @@
 import React from 'react'
-import renderer from 'react-test-renderer'
+import ReactTestUtils from 'react-addons-test-utils'
 import App from '../App'
 
 test('App should render', () => {
-  const component = renderer.create(<App />)
-  const tree = component.toJSON()
+  const renderer = ReactTestUtils.createRenderer()
+  renderer.render(<App />)
+  const tree = renderer.getRenderOutput()
   expect(tree).toMatchSnapshot()
 })

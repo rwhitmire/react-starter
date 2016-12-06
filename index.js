@@ -2,6 +2,7 @@ const express = require('express')
 const path = require('path')
 const webpackDevMiddleware = require('webpack-dev-middleware')
 const webpack = require('webpack')
+const opn = require('opn')
 const config = require('./webpack.config.dev')
 
 const app = express()
@@ -20,4 +21,5 @@ app.get('/', function (req, res) {
 
 app.listen(4000, function () {
   console.log('Dev server running at http://localhost:4000')
+  opn('http://localhost:4000')
 })

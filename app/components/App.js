@@ -4,12 +4,8 @@ import { makeCancelable } from 'helpers/promise'
 import img from './icon.png'
 
 class App extends Component {
-  constructor() {
-    super()
-
-    this.state = {
-      posts: []
-    }
+  state = {
+    posts: []
   }
 
   componentDidMount() {
