@@ -1,5 +1,3 @@
-import 'whatwg-fetch'
-
 /**
  * Fetch wrapper for making REST API calls
  */

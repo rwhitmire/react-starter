@@ -1,6 +1,4 @@
 const express = require('express')
-const path = require('path')
-const webpackDevMiddleware = require('webpack-dev-middleware')
 const webpack = require('webpack')
 const opn = require('opn')
 const config = require('./webpack.config.dev')
@@ -8,16 +6,33 @@ const config = require('./webpack.config.dev')
 const app = express()
 const compiler = webpack(config)
 
-app.use(webpackDevMiddleware(compiler, {
-  noInfo: true,
-  publicPath: config.output.publicPath
-}))
-
-app.use(require('webpack-hot-middleware')(compiler))
-
-app.get('/', function (req, res) {
-  res.sendFile(path.join(__dirname, 'index.html'))
+const devMiddleware = require('webpack-dev-middleware')(compiler, {
+  publicPath: config.output.publicPath,
+  stats: {
+    colors: true,
+    chunks: false
+  }
 })
+
+const hotMiddleware = require('webpack-hot-middleware')(compiler)
+
+/**
+ * handle fallback for HTML5 history API
+ */
+
+app.use(require('connect-history-api-fallback')())
+
+/**
+ * serve webpack bundle output
+ */
+
+app.use(devMiddleware)
+
+/**
+ * enable hot reload and compile error display
+ */
+
+app.use(hotMiddleware)
 
 app.listen(4000, function () {
   console.log('Dev server running at http://localhost:4000')
