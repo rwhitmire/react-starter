@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import { fetchJSON } from 'helpers/fetch'
-import { makeCancelable } from 'helpers/promise'
+import { fetchJSON } from '../helpers/fetch'
+import { makeCancelable } from '../helpers/promise'
 import img from './icon.png'
 
 class App extends Component {

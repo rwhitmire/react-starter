@@ -19,8 +19,8 @@ module.exports = {
       loaders: ['babel'],
       include: path.join(__dirname, 'app')
     },{
-      test: /\.less$/,
-      loaders: ['style', 'css', 'less'],
+      test: /\.css$/,
+      loaders: ['style', 'css'],
       include: path.join(__dirname, 'app')
     },{
       test: /\.(ico|jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2)(\?.*)?$/,

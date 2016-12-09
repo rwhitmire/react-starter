@@ -37,6 +37,7 @@ app.use(hotMiddleware)
 const port = 4000
 
 app.listen(port, function () {
-  console.log(`Dev server running at http://localhost:${port}`)
-  opn(`http://localhost:${port}`)
+  const url = `http://localhost:${port}`
+  console.log(`Dev server running at ${url}`)
+  opn(url)
 })

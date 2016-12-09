@@ -5,10 +5,9 @@
   "main": "index.js",
   "scripts": {
     "start": "node .",
-    "build": "cross-env NODE_ENV=production webpack --config webpack.config.prd.js",
-    "test:once": "cross-env NODE_PATH=app jest",
-    "test:watch": "cross-env NODE_PATH=app jest --watch",
-    "test": "npm run lint && npm run test:once",
+    "clean": "rimraf dist",
+    "build": "npm run clean && cross-env NODE_ENV=production webpack --config webpack.config.prd.js",
+    "test": "jest",
     "lint": "eslint app"
   },
   "keywords": [],
@@ -21,7 +20,7 @@
   "devDependencies": {
     "babel-core": "^6.18.0",
     "babel-eslint": "^7.1.1",
-    "babel-jest": "^16.0.0",
+    "babel-jest": "^17.0.2",
     "babel-loader": "^6.2.5",
     "babel-preset-es2015": "^6.18.0",
     "babel-preset-react": "^6.16.0",
@@ -36,11 +35,10 @@
     "express": "^4.14.0",
     "file-loader": "^0.9.0",
     "html-webpack-plugin": "^2.24.1",
-    "jest": "^16.0.2",
-    "less": "^2.7.1",
-    "less-loader": "^2.2.3",
+    "jest": "^17.0.3",
     "opn": "^4.0.2",
     "react-addons-test-utils": "^15.4.1",
+    "rimraf": "^2.5.4",
     "style-loader": "^0.13.1",
     "webpack": "^1.13.2",
     "webpack-dev-middleware": "^1.8.4",
@@ -49,7 +47,7 @@
   "jest": {
     "moduleNameMapper": {
       "^.+\\.(ico|jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2)$": "<rootDir>/app/__mocks__/fileMock.js",
-      "^.+\\.(css|less)$": "<rootDir>/app/__mocks__/styleMock.js"
+      "^.+\\.(css)$": "<rootDir>/app/__mocks__/styleMock.js"
     }
   }
 }
