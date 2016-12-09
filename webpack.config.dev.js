@@ -30,11 +30,6 @@ module.exports = {
       }
     }]
   },
-  resolve: {
-    root: [
-      path.resolve('./app')
-    ]
-  },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoErrorsPlugin(),

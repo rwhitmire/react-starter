@@ -29,11 +29,6 @@ module.exports = {
       }
     }]
   },
-  resolve: {
-    root: [
-      path.resolve('./app')
-    ]
-  },
   plugins: [
     new webpack.optimize.OccurrenceOrderPlugin(),
     new webpack.DefinePlugin({
