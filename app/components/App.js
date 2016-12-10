@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { fetchJSON } from '../helpers/fetch'
 import { makeCancelable } from '../helpers/promise'
+import styles from './App.css'
 import img from './icon.png'
 
 class App extends Component {
@@ -29,7 +30,7 @@ class App extends Component {
 
   render() {
     return (
-      <div>
+      <div className={styles.app}>
         <img src={img}/>
         <ul>
           {this.state.posts.map(post => {

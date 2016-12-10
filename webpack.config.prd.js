@@ -3,40 +3,46 @@ const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
-  devtool: 'source-map',
   entry: [
     './app/index'
   ],
+
   output: {
     path: path.join(__dirname, 'dist'),
     filename: 'bundle.[chunkhash].js',
     publicPath: '/'
   },
+
+  devtool: 'source-map',
+
   module: {
-    loaders: [{
+    rules: [{
       test: /\.js$/,
-      loaders: ['babel'],
-      include: path.join(__dirname, 'app')
+      use: ['babel-loader'],
+      exclude: /node_modules/
     },{
       test: /\.css$/,
-      loaders: ['style', 'css'],
-      include: path.join(__dirname, 'app')
+      use: ['style-loader', 'css-loader?modules', 'postcss-loader'],
     },{
       test: /\.(ico|jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2)(\?.*)?$/,
-      loader: 'file',
-      query: {
+      use: ['file-loader'],
+      options: {
         name: 'images/[name].[hash:8].[ext]'
-      }
+      },
     }]
   },
+
   plugins: [
-    new webpack.optimize.OccurrenceOrderPlugin(),
     new webpack.DefinePlugin({
       'process.env': {
         'NODE_ENV': JSON.stringify('production')
       }
     }),
+    new webpack.LoaderOptionsPlugin({
+      minimize: true
+    }),
     new webpack.optimize.UglifyJsPlugin({
+      sourceMap: true,
       compressor: {
         warnings: false
       }

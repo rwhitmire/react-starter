@@ -1,5 +1,6 @@
 exports[`test App should render 1`] = `
-<div>
+<div
+  className="appClassName">
   <img
     src="test-file-stub" />
   <ul>
