@@ -18,17 +18,19 @@ module.exports = {
   module: {
     rules: [{
       test: /\.js$/,
-      use: ['babel-loader'],
-      exclude: /node_modules/
+      use: 'babel-loader',
+      exclude: /node_modules/,
     },{
       test: /\.css$/,
       use: ['style-loader', 'css-loader?modules', 'postcss-loader'],
     },{
       test: /\.(ico|jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2)(\?.*)?$/,
-      use: ['file-loader'],
-      options: {
-        name: 'images/[name].[hash:8].[ext]'
-      },
+      use: {
+        loader: 'file-loader',
+        query: {
+          name: 'images/[name].[hash:8].[ext]'
+        }
+      }
     }]
   },
 

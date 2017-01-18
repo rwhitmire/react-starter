@@ -1,18 +1,18 @@
 ### Development
 
 ```
-yarn install
-npm start
+yarn
+yarn start
 ```
 
 ### Testing
 
 ```
-npm test
+yarn test
 ```
 
 ### Building for Production
 
 ```
-npm run build
+yarn run build
 ```
